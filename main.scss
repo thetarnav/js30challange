@@ -81,6 +81,10 @@ footer {
       list-style: none;
       font-size: 20px;
       font-weight: 400;
+      text-align: right;
+      display: flex;
+      flex-flow: column;
+      align-items: flex-end;
    }
    li {
       position: relative;
@@ -99,13 +103,16 @@ footer {
          transition: transform 0.1s;
       }
       transition: transform 0.1s;
-      &.highlight, &:hover {
+      &.highlight {
          transform: translateX(-5px);
          &::after {
-            // width: 4px;
             transform: scaleX(3);
          }
       }
+   }
+   .name {
+      display: none;
+      font-size: 16px;
    }
 }
 
@@ -192,11 +199,23 @@ footer {
       right: 16vw;
       >ul {
          font-size: 16px;
+         line-height: 27px;
       }
       li {
          padding: 20px 15px;
          margin: 15px 0;
          margin: 1.5vh 0;
+         &:hover {
+            transform: translateX(-5px);
+            &::after {
+               transform: scaleX(3);
+            }
+         }
+      }
+      .name {
+         display: block;
+         font-size: 13px;
+         line-height: 23px;
       }
    }
 }
