@@ -17,7 +17,7 @@ const challanges = [
 ].forEach(item => {
    const [number, name] = item.split('-');
    let listItem = `
-   <li>
+   <li id="${number}">
       <p>${number}</p>
       <a href="challenges/${deleteSpaces(item)}/mine.html">
          <header>${name}</header>
