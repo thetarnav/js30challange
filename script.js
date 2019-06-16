@@ -1,20 +1,11 @@
-const challanges = [
-   '01-JavaScript Drum Kit',
-   '02-JS and CSS Clock',
-   '03-CSS Variables',
-   '04-Array Cardio Day 1',
-   '05-Flex Panel Gallery',
-   '06-Type Ahead',
-   '08-Fun with HTML5 Canvas',
-   '10-Hold Shift and Check Checkboxes',
-   '11-Custom Video Player',
-   '12-Key Sequence Detection',
-   '13-Slide in on Scroll',
-   '15-Local Storage',
-   '16-Mouse Move Shadow',
-   '17-Sort Without Articles',
-   '18-Adding Up Times with Reduce',
-].forEach(item => {
+import {
+   deleteSpaces,
+   challanges
+} from './resource.js';
+
+
+// Building the content of the page and navigation
+challanges.forEach(item => {
    const [number, name] = item.split('-');
    let listItem = `
    <li id="${number}">
@@ -25,24 +16,52 @@ const challanges = [
       </a>
    </li>
    `;
-   document.querySelector('.main-nav').innerHTML+= listItem;
+   content_html.innerHTML += listItem;
 
    listItem = `
    <a href="#${number}">
-      <li>
-         <p class='number'>${number}</p>
-         <p class='name'>${name}</p>
-      </li>
+      <p class='number'>${number}</p>
+      <p class='name'>${name}</p>
    </a>
    `;
-   timeline_list.innerHTML += listItem;
+   timeline_html.innerHTML += listItem;
 });
 
 
-function deleteSpaces(word) {
-   if (!word instanceof String) {
-      console.error('argument must be a string');
-      return;
-   };
-   return word.split(' ').join('');
+window.addEventListener('scroll', _.debounce(handleScroll, 16));
+window.addEventListener('resize', _.debounce(handleScroll, 16));
+
+function handleScroll() {
+`this function shows the representation of scroll progress on the nav`
+   const contentItems = [...content_html.children];
+   const windowY = window.innerHeight;
+   const scroll = window.scrollY;
+
+   const currentItem = contentItems.reduce((onScrollItem, item) => scroll + item.offsetHeight/2 >= item.offsetTop ? item : onScrollItem);
+
+   [...timeline_html.children].forEach((item, index) => currentItem === contentItems[index] ? item.classList.add('highlight') : item.classList.remove('highlight'));
+
+   const navItem = document.querySelector('#timeline_html .highlight');
+
+   timeline_html.scrollTo({
+      'behavior': 'smooth',
+      'left': 0,
+      'top': navItem.offsetTop - windowY/2 + navItem.offsetHeight/2
+   });
 }
+handleScroll();
+
+
+// makes the smooth scroll effect then using the nav
+timeline_html.addEventListener('click', (e) => {
+   e.preventDefault();
+   const target = e.path.find(el => "matches" in el ? el.matches('a') : false);
+   if (target === undefined) return;
+
+   const index = [...timeline_html.children].indexOf(target);
+   window.scrollTo({
+      'behavior': 'smooth',
+      'left': 0,
+      'top': content_html.children[index].offsetTop
+   });
+})
