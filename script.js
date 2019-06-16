@@ -28,8 +28,8 @@ challanges.forEach(item => {
 });
 
 
-window.addEventListener('scroll', _.debounce(handleScroll, 16));
-window.addEventListener('resize', _.debounce(handleScroll, 16));
+window.addEventListener('scroll', _.debounce(handleScroll, 25));
+window.addEventListener('resize', _.debounce(handleScroll, 25));
 
 function handleScroll() {
 `this function shows the representation of scroll progress on the nav`
