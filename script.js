@@ -28,16 +28,20 @@ challanges.forEach(item => {
 });
 
 
-window.addEventListener('scroll', _.debounce(handleScroll, 25, { 'maxWait': 25 }));
-window.addEventListener('resize', _.debounce(handleScroll, 25, { 'maxWait': 25 }));
+window.addEventListener('scroll', _.debounce(handleScroll, 25, {
+   'maxWait': 25
+}));
+window.addEventListener('resize', _.debounce(handleScroll, 25, {
+   'maxWait': 25
+}));
 
 function handleScroll() {
-`this function shows the representation of scroll progress on the nav`
+   `this function shows the representation of scroll progress on the nav`
    const contentItems = [...content_html.children];
    const windowY = window.innerHeight;
    const scroll = window.scrollY;
 
-   const currentItem = contentItems.reduce((onScrollItem, item) => scroll + item.offsetHeight/2 >= item.offsetTop ? item : onScrollItem);
+   const currentItem = contentItems.reduce((onScrollItem, item) => scroll + item.offsetHeight / 2 >= item.offsetTop ? item : onScrollItem);
 
    [...timeline_html.children].forEach((item, index) => currentItem === contentItems[index] ? item.classList.add('highlight') : item.classList.remove('highlight'));
 
@@ -46,14 +50,14 @@ function handleScroll() {
    timeline_html.scrollTo({
       'behavior': 'smooth',
       'left': 0,
-      'top': navItem.offsetTop - windowY/2 + navItem.offsetHeight/2
+      'top': navItem.offsetTop - windowY / 2 + navItem.offsetHeight / 2
    });
 }
 handleScroll();
 
 
 // makes the smooth scroll effect then using the nav
-timeline_html.addEventListener('click', (e) => {
+timeline_html.addEventListener('click', e => {
    e.preventDefault();
    const target = e.path.find(el => "matches" in el ? el.matches('a') : false);
    if (target === undefined) return;
