@@ -27,6 +27,7 @@ const challanges = [
    '19-Webcam Fun',
    '20-Speech Detection',
    '22-Follow Along Link Highlighter',
+   '23-Speech Synthesis',
 ]
 
 export {
