@@ -28,6 +28,7 @@ const challanges = [
    '20-Speech Detection',
    '22-Follow Along Link Highlighter',
    '23-Speech Synthesis',
+   '24-Sticky Nav',
 ]
 
 export {
