@@ -26,6 +26,7 @@ const challanges = [
    '18-Adding Up Times with Reduce',
    '19-Webcam Fun',
    '20-Speech Detection',
+   '22-Follow Along Link Highlighter',
 ]
 
 export {
