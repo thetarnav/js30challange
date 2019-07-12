@@ -29,6 +29,7 @@ const challanges = [
    '22-Follow Along Link Highlighter',
    '23-Speech Synthesis',
    '24-Sticky Nav',
+   '25-Event Capture, Propagation, Bubbling and Once',
 ]
 
 export {
