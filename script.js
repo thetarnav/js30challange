@@ -12,7 +12,7 @@ challanges.forEach(item => {
       <p>${number}</p>
       <a href="challenges/${deleteSpaces(item)}/mine.html">
          <header>${name}</header>
-         <img src="img/${number}.png" alt=" ">
+         <img src="img/${number}.jpg" alt=" ">
       </a>
    </li>
    `;
