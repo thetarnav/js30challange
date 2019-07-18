@@ -31,6 +31,7 @@ const challanges = [
    '24-Sticky Nav',
    '25-Event Capture, Propagation, Bubbling and Once',
    '26-Stripe Follow Along Nav',
+   '27-Click and Drag',
 ]
 
 export {
