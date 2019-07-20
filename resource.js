@@ -32,6 +32,7 @@ const challanges = [
    '25-Event Capture, Propagation, Bubbling and Once',
    '26-Stripe Follow Along Nav',
    '27-Click and Drag',
+   '28-Video Speed Controller',
 ]
 
 export {
