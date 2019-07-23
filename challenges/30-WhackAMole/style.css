@@ -12,6 +12,10 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Amatic SC', cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -20,8 +24,13 @@ h1 {
   line-height: 1;
   margin-bottom: 0;
 }
+h2 {
+  text-align: center;
+  font-size: 4rem;
+  margin-bottom: 0;
+}
 
-.score {
+span {
   background: rgba(255,255,255,0.2);
   padding: 0 3rem;
   line-height: 1;
@@ -66,4 +75,19 @@ h1 {
 
 .hole.up .mole {
   top: 0;
+}
+
+button {
+  padding: 10px 20px;
+  font-family: 'Amatic SC', cursive;
+  font-size: 5rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  margin-top: 40px;
+}
+button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
 }
